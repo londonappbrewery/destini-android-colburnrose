@@ -14,4 +14,42 @@
 
     </style>
 
+    <!-- TextView styles -->
+    <style name="TextView">
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignParentEnd">true</item>
+    </style>
+
+    <!-- Button Top styles -->
+    <style name="ButtonTop">
+        <item name="android:textColor">#ecf0f1</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">#e74c3c</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_marginBottom">61dp</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:layout_alignParentEnd">true</item>
+    </style>
+
+    <!-- Button Bottom styles -->
+    <style name="ButtonBottom">
+        <item name="android:background">#3498db</item>
+        <item name="android:textColor">#ecf0f1</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignRight">@+id/buttonTop</item>
+        <item name="android:layout_alignLeft">@+id/buttonTop</item>
+        <item name="android:layout_alignStart">@+id/buttonTop</item>
+        <item name="android:layout_alignEnd">@+id/buttonTop</item>
+    </style>
 </resources>
