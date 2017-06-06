@@ -31,17 +31,14 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Main Activity", "True Button pressed!");
             }
         });
+
+        // TODO: Steps 6, 7, & 9 - Set a listener on the bottom button:
         mButtonBottom.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Log.d("Main Activity", "False Button pressed!");
             }
         });
-
-
-
-        // TODO: Steps 6, 7, & 9 - Set a listener on the bottom button:
-
 
     }
 }
