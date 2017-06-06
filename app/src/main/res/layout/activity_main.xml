@@ -28,6 +28,4 @@
         android:id="@+id/buttonBottom"
         android:text="@string/T1_Ans2"/>
 
-
-
 </RelativeLayout>
