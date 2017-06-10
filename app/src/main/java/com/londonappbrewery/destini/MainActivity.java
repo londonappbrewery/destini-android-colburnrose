@@ -12,13 +12,20 @@ public class MainActivity extends AppCompatActivity {
     TextView mStoryText;
     Button mButtonTop;
     Button mButtonBottom;
-    int mStoryId =1;
+    int mStoryIndex =1;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(savedInstanceState != null){
+            mStoryIndex = savedInstanceState.getInt("IndexKey");
+        }else {
+            mStoryIndex =1;
+        }
+
 
         // TODO: Step 5 - Wire up the 3 views from the layout to the member variables:
         mStoryText = (TextView) findViewById(R.id.storyTextView);
@@ -29,7 +36,18 @@ public class MainActivity extends AppCompatActivity {
         mButtonTop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateStory(mStoryText.getText(), true);
+
+                if(mStoryIndex == 1){
+                    mStoryText.setText(R.string.T3_Story);
+                    mButtonTop.setText(R.string.T3_Ans1);
+                    mButtonBottom.setText(R.string.T3_Ans2);
+                    mStoryIndex = 3;
+                }else{
+                    mStoryText.setText(R.string.T6_End);
+                    mButtonTop.setVisibility(View.GONE);
+                    mButtonBottom.setVisibility(View.GONE);
+                    mStoryIndex=1;
+                }
             }
         });
 
@@ -37,37 +55,31 @@ public class MainActivity extends AppCompatActivity {
         mButtonBottom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateStory(mStoryText.getText(), false);
+
+                if(mStoryIndex == 1){
+                    mStoryText.setText(R.string.T2_Story);
+                    mButtonTop.setText(R.string.T2_Ans1);
+                    mButtonBottom.setText(R.string.T2_Ans2);
+                    mStoryIndex = 2;
+                }else if(mStoryIndex == 2){
+                    mStoryText.setText(R.string.T4_End);
+                    mButtonTop.setVisibility(View.GONE);
+                    mButtonBottom.setVisibility(View.GONE);
+                }else if(mStoryIndex == 3){
+                    mStoryText.setText(R.string.T5_End);
+                    mButtonTop.setVisibility(View.GONE);
+                    mButtonBottom.setVisibility(View.GONE);
+                }else mStoryIndex =1;
             }
 
         });
     }
 
-    public void updateStory(CharSequence text, Boolean answer) {
-        if (text == getString(R.string.T1_Story)) {
-            if (answer == true) {
-                mStoryText.setText(R.string.T3_Story);
-                mButtonTop.setText(R.string.T3_Ans1);
-                mButtonBottom.setText(R.string.T3_Ans2);
-            }
-            else {
-                mStoryText.setText(R.string.T2_Story);
-                mButtonTop.setText(R.string.T2_Ans1);
-                mButtonBottom.setText(R.string.T2_Ans2);
-            }
-        }
-        else if(text == getString(R.string.T2_Story)){
-            if(answer == true){
-                mStoryText.setText(R.string.T3_Story);
-                mButtonTop.setText(R.string.T3_Ans1);
-                mButtonBottom.setText(R.string.T3_Ans2);
-            }
-            else {
-                mStoryText.setText(R.string.T2_Story);
-                mButtonTop.setText(R.string.T2_Ans1);
-                mButtonBottom.setText(R.string.T2_Ans2);
-            }
-        }
+    @Override
+    public void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
+        outState.putInt("IndexKey", mStoryIndex);
     }
+
 }
 
